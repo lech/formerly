@@ -1,0 +1,164 @@
+/* -------------------------------------------------------------------------- */
+/* Scrollbar coloring. Because you can and no more vendor-specific BS beyond.
+/* -------------------------------------------------------------------------- */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+*::-webkit-scrollbar {
+  width: 1vw;
+  min-height: 1vh;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #077;
+  border-radius: 3px;
+}
+*::-webkit-scrollbar-track {
+  background-color: #044;
+}
+
+/* -------------------------------------------------------------------------- */
+/* tab magic here, nothing fancy, ordered items with hidden radio buttons.
+/* -------------------------------------------------------------------------- */
+
+.tabContent {
+  flex-wrap: wrap;
+  background: rgba(0, 34, 34, 0.25);
+}
+
+.tabContent > label {
+  order: 1;
+  display: inline;
+  cursor: default;
+  padding: 1em;
+  margin-right: 0.2vw;
+  background: rgba(255, 255, 255, 0.4);
+  border-bottom: 2px dotted rgba(0, 34, 34, 0.1);
+  transition: background ease 0.4s;
+}
+
+.tabContent .tabSection {
+  order: 99;
+  display: none;
+}
+
+.tabSection {
+  display: none;
+  min-height: 90vh;
+}
+
+.tabContent > input[type="radio"] {
+  display: none;
+}
+
+.tabContent > input[type="radio"]:checked+label {
+  background: rgba(255, 255, 255, 1);
+  border-bottom: 2px solid #0aa;
+}
+
+.tabContent > input[type="radio"]:checked+label,
+.tabContent > input[type="radio"]:checked+label+.tabSection {
+  display: flex;
+  cursor: default;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Form Layouts */
+/* -------------------------------------------------------------------------- */
+
+.formleft {
+  border-right: 1px solid #ccc;
+  background-color: #fafafa;
+}
+
+.formright {
+  min-width: 70%;  
+  background: #eaeaea;
+}
+
+.formleft, .formright {
+  min-height: 100% !important;
+}
+
+.printout {
+  min-height: 50vh;
+  height: 100%;
+
+  color: #fff;
+  background: #022;
+  resize: vertical;
+
+  padding: .5em;
+  margin: .5em 0;
+  border-radius: 0px;
+  border: 0;
+  cursor: auto;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.error {
+  font-weight: bold;
+  animation: blinker 1.6s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: .25;
+    /*border-color: #d0d;*/
+  }
+}
+
+.hidden {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+
+.glitch {
+  position: relative;
+  transform: translate(1%, 1%);
+
+}
+.glitch, .glitch:before, .glitch:after {
+  padding: 0 0 0 1vw;
+  opacity: .96;
+}
+
+.glitch:before, .glitch:after {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  content: attr(glitch-text);
+  top: 1%;
+  left: 1%;
+}
+
+.glitch:after {
+  color: #0ff;
+  z-index: -2;
+  animation:
+    glitch 2.9s cubic-bezier(0.25, 0.6, 0.4, 0.94) reverse both infinite;
+}
+
+.glitch:before {
+  color: #f0f;
+  z-index: -1;
+  animation:
+    glitch 1.7s cubic-bezier(0.2, 0.46, 0.45, 0.94) both infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2%x, 2%); }
+  40% { transform: translate(-2%, -2%); }
+  60% { transform: translate(2%, 2%); }
+  80% { transform: translate(2%, -2%); }
+  to { transform: translate(0); }
+}

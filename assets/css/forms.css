@@ -1,0 +1,113 @@
+/* reset other form elements */
+form > input* {
+  /*
+  all: initial;
+  all: unset;
+  display: inline-block;
+  */
+}
+
+form > input[type="submit"],
+form > input[type="reset"],
+form > input[type="button"] {
+  display: inline-block;
+  width: max-content;
+  padding: 1em;
+  margin-bottom: 0.7em;
+  color: #555;
+  text-align: center;
+  font-size: .75em;
+  font-weight: 700;
+  line-height: 1.3em;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+}
+
+form > input[type="range"] {
+  display: inline;
+  border-radius: 1px;
+  margin: 1em 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+input[type='range'] + output {
+  background-color: #fff;
+  width: 80px;
+  padding: .5em 0;
+  margin: .5em 0;
+  text-align: center;
+  border-radius: 4px;
+  border: dotted 1px #999;
+}
+
+input[type='range']:focus {
+  outline: none;
+}
+
+/* Highlight bad patterns */
+form > input:invalid {
+ border-color: #d0d;
+ animation: blinker 1.2s linear infinite;
+ content: "err";
+}
+
+form > input:valid {
+ /*border-color: #0dd;*/
+}
+
+form > input[type="email"],
+form > input[type="number"],
+form > input[type="search"],
+form > input[type="text"],
+form > input[type="tel"],
+form > input[type="url"],
+form > input[type="password"],
+form > textarea,
+form > select {
+  height: 2.5em;
+  width: 100% !important;
+  vertical-align: middle;
+  padding: 6px 10px;
+  /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: #efefef;
+  border: 0px;
+  border-bottom: 3px solid #ddd;
+  border-radius: 2px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+form > input[type="email"]:focus,
+form > input[type="number"]:focus,
+form > input[type="search"]:focus,
+form > input[type="text"]:focus,
+form > input[type="tel"]:focus,
+form > input[type="url"]:focus,
+form > input[type="password"]:focus,
+form > textarea:focus,
+form > select:focus {
+  border-bottom: 3px solid #088;
+  outline: 0;
+}
+
+form > label,
+form > legend {
+  display: inline;
+  color: #333;
+  margin: 1em 0;
+
+  font-weight: 600;
+}
+
+form > input[type="checkbox"] {
+  display: block;
+  float: right;
+  width: auto;
+
+}
